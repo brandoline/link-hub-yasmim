@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Yasmim Kamille</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+    <span class="logo">YK</span>
+      <nav aria-label="Navegação principal">
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="home">
+      <div class="container">
+        <div class="home">
+          <div class="home-image-col">
+            <div class="home-image" role="img" aria-label="Foto de perfil">
+              <!-- <img src="foto.jpg" alt="Nome da Pessoa" /> -->
+            </div>
+          </div>
+          <div class="home-info">
+          <h1 class="home-name">Yasmim Kamille</h1>
+          <p class="home-bio">
+            Modelo | Criadora de conteúdo | Apaixonada por moda e conexões reais
+          </p>
+            <div class="home-btn">
+              <a href="#sobre" class="btn">Saiba mais</a>
+              <a href="#sobre" class="btn-cta">Entre em contato</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="sobre" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <h2 class="about-title">Sobre mim</h2>
+            <p class="about-text">
+              Texto descritivo mais longo sobre você, sua trajetória, habilidades ou qualquer
+              informação relevante que queira compartilhar com o visitante. Este espaço
+              pode conter dois ou três parágrafos conforme necessário.
+            </p>
+          </div>
+          <aside class="about-links" id="about-links">
+            <h3 class="links-title">Onde me encontrar:</h3>
+            <ul class="links-list" id="links-list">
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="contato">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <p class="footer-note">A autenticidade não é sobre ser perfeita, é sobre ser real.</p>
+          <nav class="footer-social" aria-label="Redes sociais">
+            <a href="#" class="social-icon" aria-label="Rede social 1"><img src="./assets/WhatsApp.svg" alt="WhatsApp"></a>
+            <a href="#" class="social-icon" aria-label="Rede social 2"><img src="./assets/tiktok.svg" alt="TikTok"></a></a>
+            <a href="#" class="social-icon" aria-label="Rede social 3"><img src="./assets/instagram.svg" alt="Instagram"></a></a>
+          </nav>
+        </div>
+        <p class="footer-credit">Direitos reservado a Yasmim Kamille &copy;</p>
+        <div class="divisor"></div>
+        <p class="footer-credit">Desenvolvido por <a href="#">Helen Brandão</a> <span id="ano"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    let URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTRuUGchSCkp2KtEXIDzrKJOYguMCv7qIwVJnC_QXjyXQqEPOWijiBI8Mll-UGVNMlayjLetDI3mlLQ/pub?output=csv';
+
+    fetch(URL)
+    .then(response => response.text())
+    .then(dados => {
+      
+    let lista = dados.split(/\r\n/).map(l => l.split(','))
+      console.log(lista);
+      const ul = document.getElementById("links-list");
+
+      lista.slice(1).forEach(info => {
+      const li = document.createElement("li");
+
+        let nome = info[0];
+        let link = info[1];
+        let imagem = info[2];
+        let ImgUrl = '';
+
+        switch(imagem){
+          case 'Instagram':
+            ImgUrl = 'Instagram'
+            ImgUrl = './assets/Instagram.svg'
+            break;
+
+          case 'WhatsApp':
+            ImgUrl = './assets/WhatsApp.svg'
+            break;
+
+          case 'TikTok':
+            ImgUrl = './assets/TikTok.svg'
+            break;
+
+          case 'Site':
+            ImgUrl = './assets/carrinho-de-compras.svg'
+            break;
+
+          default: 
+            ImgUrl = 'None'
+
+        }
+
+        let aLink = document.createElement("a");
+        aLink.innerHTML = `<a href="${link}" class="link-item" target="_blank"><div        class="link-item-icon" aria-hidden="true">
+                            <img src="${ImgUrl}" alt="${imagem}">
+                            </div>
+                            <span class="link-item-label">${nome}</span>
+                            </a>`;
+
+        li.appendChild(aLink);
+        ul.appendChild(li);
+      });
+    })
+
+
+
+  </script>
+
+</body>
+</html>
