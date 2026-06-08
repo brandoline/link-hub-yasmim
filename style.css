@@ -326,7 +326,7 @@
         gap: 2rem;
       }
 
-      .about-title{
+      .about-title, .links-title{
         font-size: 1.6rem;
       }
     }
