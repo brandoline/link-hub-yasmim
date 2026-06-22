@@ -138,6 +138,7 @@
 
     .btn, .btn-cta{
         display: inline-block;
+        text-align: center;
         padding: 0.6rem 1.4rem;
         border: 1px solid var(--dark);
         border-radius: var(--radius);
@@ -181,7 +182,9 @@
     }
 
     .about-text{
+      text-indent: 1.5rem;
       font-size: 1rem;
+      margin-bottom: 1rem;
     }
 
     /* --- Links --- */
