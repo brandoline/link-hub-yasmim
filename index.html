@@ -118,7 +118,6 @@
     .then(dados => {
       
     let lista = dados.split(/\r\n/).map(l => l.split(','))
-      console.log(lista);
       const ul = document.getElementById("links-list");
 
       lista.slice(1).forEach(info => {
