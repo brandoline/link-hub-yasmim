@@ -106,6 +106,10 @@
       width: 35rem;
     }
 
+    .home-image{
+      width: 100%;
+    }
+
     .home-info{
       display: flex;
       flex-direction: column;
@@ -309,8 +313,7 @@
       }
 
       .home-image{
-        max-width: 200px;
-        margin: 0 auto;
+        width: 35rem;
       }
 
       .home-name{
