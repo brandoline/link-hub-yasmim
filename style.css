@@ -29,7 +29,6 @@
 
     img{
         display: block;
-        max-width: 100%;
     }
 
     a{
@@ -104,13 +103,7 @@
     .home-image-col{
       display: flex;
       justify-content: center;
-    }
-
-    .home-image{
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background-color: #ddd;
-      border: 1px solid #bbb;
+      width: 35rem;
     }
 
     .home-info{
